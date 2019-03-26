@@ -53,7 +53,6 @@
 	<color name="item_doc_background_selected">#4d3367d6</color>
 	<color name="shortcut_foreground">#ff3367d6</color>
 	<color name="inspector_section_divider">#E0E0E0</color>
-	<color name="item_doc_background_selected">#4d3367d6</color>
 	<color name="text_handle">@*android:color/accent_device_default_dark</color>     <!--Blue A100-->
 	<color name="item_drag_shadow_container_background">@*android:color/transparent</color>
 	<color name="inspector_title_background">#40000000</color>
