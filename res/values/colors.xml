@@ -22,7 +22,7 @@
     <color name="drawer_background">#ff1e1f22</color>
     <color name="drawer_border">#ff1e1f22</color>
     <color name="directory_background">#ff1e1f22</color>
-
+    <color name="accent_dark">@*android:color/accent_device_default_dark</color>
     <color name="text_cursor">@*android:color/black</color>
 
     <color name="band_select_background">#ff1e1f22</color>
@@ -53,6 +53,7 @@
 	<color name="item_doc_background_selected">#4d3367d6</color>
 	<color name="shortcut_foreground">#ff3367d6</color>
 	<color name="inspector_section_divider">#E0E0E0</color>
+    <color name="inspector_link">#6633b5e5</color>
 	<color name="text_handle">@*android:color/accent_device_default_dark</color>     <!--Blue A100-->
 	<color name="item_drag_shadow_container_background">@*android:color/transparent</color>
 	<color name="inspector_title_background">#40000000</color>
