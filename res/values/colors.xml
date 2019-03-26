@@ -40,6 +40,7 @@
     <item name="root_icon_disabled_alpha" format="float" type="dimen">@*android:dimen/disabled_alpha_material_dark</item>
     <color name="doc_icon_color">#ffa5a5a5</color>
     <color name="primary">@color/tool_bar_color</color>
+    <color name="item_grid_tint">@*android:color/accent_device_default_light</color>
     <color name="item_doc_title">#ffcccccc</color>
     <color name="item_doc_title_disabled">@*android:color/secondary_text_default_material_dark</color>
     <color name="item_doc_details">#ffcccccc</color>
@@ -48,6 +49,14 @@
     <color name="item_breadcrumb_background_hovered">#1affffff</color>
     <color name="item_doc_droppable_background">#ff170f04</color>
     <color name="item_doc_not_droppable_background">#ff1f1f1f</color>
+	<color name="root_activated_color">@*android:color/accent_device_default_light</color>
+	<color name="item_doc_background_selected">#4d3367d6</color>
+	<color name="shortcut_foreground">#ff3367d6</color>
+	<color name="inspector_section_divider">#E0E0E0</color>
+	<color name="item_doc_background_selected">#4d3367d6</color>
+	<color name="text_handle">@*android:color/accent_device_default_dark</color>     <!--Blue A100-->
+	<color name="item_drag_shadow_container_background">@*android:color/transparent</color>
+	<color name="inspector_title_background">#40000000</color>
     <color name="text_highlight">@*android:color/accent_device_default_dark</color>  <!--Blue A100-->
     <color name="item_drag_shadow_background">@*android:color/black</color>
 
