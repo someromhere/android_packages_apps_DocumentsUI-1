@@ -368,4 +368,8 @@
 
     <!-- Button for continuing a file operation in background, eg. copying, moving or extracting. [CHAR LIMIT=48] -->
     <string name="continue_in_background">Continue in background</string>
+    <string name="menu_backup">Backup files</string>
+    <string name="menu_download">Get files</string>
+    <!-- Title of ipfs storage location that contains recently modified or used documents [CHAR LIMIT=24] -->
+    <string name="root_ipfsstore">ipfs</string>
 </resources>

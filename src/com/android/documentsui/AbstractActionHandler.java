@@ -458,6 +458,11 @@ public abstract class AbstractActionHandler<T extends Activity & CommonAddons>
     public void deleteSelectedDocuments() {
         throw new UnsupportedOperationException("Delete not supported!");
     }
+	
+    @Override
+    public void backupDocuments() {
+        throw new UnsupportedOperationException("Backup not supported!");
+    }
 
     @Override
     public void shareSelectedDocuments() {

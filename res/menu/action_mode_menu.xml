@@ -72,4 +72,14 @@
         android:title="@string/menu_view_in_owner"
         android:showAsAction="never"
         android:visible="false" />
+    <item
+        android:id="@+id/action_menu_backup"
+        android:title="@string/menu_backup"
+        android:showAsAction="never"
+        android:visible="false" />
+    <item
+        android:id="@+id/action_menu_download"
+        android:title="@string/menu_download"
+        android:showAsAction="never"
+        android:visible="false" />
 </menu>

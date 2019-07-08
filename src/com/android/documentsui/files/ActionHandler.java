@@ -199,7 +199,7 @@ public class ActionHandler<T extends Activity & Addons> extends AbstractActionHa
         DocumentInfo doc = mModel.getDocument(details.getStableId());
         if (doc == null) {
             Log.w(TAG,
-                    "Can't view item. No Document available for modeId: " + details.getStableId());
+                    "Can't view item. No Document available for modeId: "  details.getStableId());
             return false;
         }
 
@@ -288,7 +288,7 @@ public class ActionHandler<T extends Activity & Addons> extends AbstractActionHa
         try {
             mActivity.startActivity(intent);
         } catch (ActivityNotFoundException e) {
-            Log.e(TAG, "Failed to view settings in application for " + doc.derivedUri, e);
+            Log.e(TAG, "Failed to view settings in application for "  doc.derivedUri, e);
             mDialogs.showNoApplicationFound();
         }
     }
@@ -359,6 +359,57 @@ public class ActionHandler<T extends Activity & Addons> extends AbstractActionHa
     }
 
     @Override
+    public void backupDocuments() {
+        Metrics.logUserAction(mActivity, Metrics.USER_ACTION_DELETE);
+        Selection selection = getSelectedOrFocused();
+
+        if (selection.isEmpty()) {
+            return;
+        }
+
+        final @Nullable DocumentInfo srcParent = mState.stack.peek();
+
+        // Model must be accessed in UI thread, since underlying cursor is not threadsafe.
+        List<DocumentInfo> docs = mModel.getDocuments(selection);
+
+        ConfirmationCallback result = (@Result int code) -> {
+            // share the news with our caller, be it good or bad.
+            mActionModeAddons.finishOnConfirmed(code);
+
+            if (code != ConfirmationCallback.CONFIRM) {
+                return;
+            }
+
+            UrisSupplier srcs;
+            try {
+                srcs = UrisSupplier.create(
+                        selection,
+                        mModel::getItemUri,
+                        mClipStore);
+            } catch (Exception e) {
+                Log.e(TAG,"Failed to delete a file because we were unable to get item URIs.", e);
+                mDialogs.showFileOperationStatus(
+                        FileOperations.Callback.STATUS_FAILED,
+                        FileOperationService.OPERATION_BACKUP,
+                        selection.size());
+                return;
+            }
+
+            FileOperation operation = new FileOperation.Builder()
+                    .withOpType(FileOperationService.OPERATION_BACKUP)
+                    .withDestination(mState.stack)
+                    .withSrcs(srcs)
+                    .withSrcParent(srcParent == null ? null : srcParent.derivedUri)
+                    .build();
+
+            FileOperations.start(mActivity, operation, mDialogs::showFileOperationStatus,
+                    FileOperations.createJobId());
+        };
+
+        mDialogs.confirmDelete(docs, result);
+    }
+
+    @Override
     public void shareSelectedDocuments() {
         Metrics.logUserAction(mActivity, Metrics.USER_ACTION_SHARE);
 
@@ -417,7 +468,7 @@ public class ActionHandler<T extends Activity & Addons> extends AbstractActionHa
         // stack is initialized if it's restored from bundle, which means we're restoring a
         // previously stored state.
         if (mState.stack.isInitialized()) {
-            if (DEBUG) Log.d(TAG, "Stack already resolved for uri: " + intent.getData());
+            if (DEBUG) Log.d(TAG, "Stack already resolved for uri: "  intent.getData());
             restoreRootAndDirectory();
             return;
         }
@@ -597,7 +648,7 @@ public class ActionHandler<T extends Activity & Addons> extends AbstractActionHa
 
         Intent intent = buildViewIntent(doc);
         if (DEBUG && intent.getClipData() != null) {
-            Log.d(TAG, "Starting intent w/ clip data: " + intent.getClipData());
+            Log.d(TAG, "Starting intent w/ clip data: "  intent.getClipData());
         }
 
         try {
@@ -628,7 +679,7 @@ public class ActionHandler<T extends Activity & Addons> extends AbstractActionHa
                 return true;
             } catch (SecurityException e) {
                 // Carry on to regular view mode.
-                Log.e(TAG, "Caught security error: " + e.getLocalizedMessage());
+                Log.e(TAG, "Caught security error: "  e.getLocalizedMessage());
             }
         }
 
