@@ -64,8 +64,6 @@ public abstract class MenuManager {
         updateExtractTo(menu.findItem(R.id.action_menu_extract_to), selection);
         updateInspect(menu.findItem(R.id.action_menu_inspect), selection);
         updateViewInOwner(menu.findItem(R.id.action_menu_view_in_owner), selection);
-		updateBackup(menu.findItem(R.id.action_menu_backup));
-		updateGet(menu.findItem(R.id.action_menu_download));
 
         Menus.disableHiddenItems(menu);
     }
@@ -81,9 +79,6 @@ public abstract class MenuManager {
         updateAdvanced(menu.findItem(R.id.option_menu_advanced));
         updateDebug(menu.findItem(R.id.option_menu_debug));
         updateInspect(menu.findItem(R.id.option_menu_inspect));
-        updateBackup(menu.findItem(R.id.option_menu_backup));
-		updateGet(menu.findItem(R.id.option_menu_download));
-		updateDebug(menu.findItem(R.id.option_menu_debug));
         Menus.disableHiddenItems(menu);
     }
 
@@ -331,8 +326,6 @@ public abstract class MenuManager {
     protected abstract void updateSelectAll(MenuItem selectAll);
     protected abstract void updateCreateDir(MenuItem createDir);
 
-    protected abstract void updateBackup(MenuItem storedecent);
-    protected abstract void updateGet(MenuItem Downdecent);
     /**
      * Access to meta data about the selection.
      */

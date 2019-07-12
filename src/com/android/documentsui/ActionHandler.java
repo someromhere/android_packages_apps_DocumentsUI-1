@@ -134,11 +134,6 @@ public interface ActionHandler {
      */
     void deleteSelectedDocuments();
 
-    /**
-     * In general, selected = selection or single focused item
-     */
-	void backupDocuments();
-
     void shareSelectedDocuments();
 
     /**

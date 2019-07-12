@@ -82,17 +82,5 @@
            android:title="@string/menu_inspect"
            android:showAsAction="never"
            android:visible="false" />
-        <item
-            android:id="@+id/option_menu_backup"
-            android:title="@string/menu_backup"
-            android:alphabeticShortcut="s"
-            android:showAsAction="never"
-            android:visible="false" />
-        <item
-            android:id="@+id/option_menu_download"
-            android:title="@string/menu_download"
-            android:alphabeticShortcut="f"
-            android:showAsAction="never"
-            android:visible="false" />
     </group>
 </menu>
